@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tanuja Realtors | Premium Real Estate in India & UAE</title>
+<meta name="description" content="Tanuja Realtors delivers trusted real estate solutions across India and the UAE, backed by 20+ years of industry experience, transparency, quality, and customer-focused service." />
+<link rel="icon" type="image/png" href="./img//Tanuja-Realtors-Logo.png" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          charcoal: {
+            DEFAULT: '#242422',
+            50: '#F4F4F3',
+            100: '#E4E4E2',
+            200: '#C8C8C4',
+            300: '#A6A6A0',
+            400: '#75756E',
+            500: '#585851',
+            600: '#454540',
+            700: '#343330',
+            800: '#242422',
+            900: '#1A1A18',
+            950: '#101010',
+          },
+          sage: {
+            DEFAULT: '#8D8F84',
+            50: '#F5F5F2',
+            100: '#E9EAE4',
+            200: '#D3D5C9',
+            300: '#B8BBAA',
+            400: '#A2A594',
+            500: '#8D8F84',
+            600: '#73766A',
+            700: '#5C5F54',
+            800: '#474A40',
+            900: '#34362F',
+          },
+          cream: '#F5F2ED',
+          ink: '#1E1D1A',
+        },
+        fontFamily: {
+          serif: ['Fraunces', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+          label: ['Jost', 'sans-serif'],
+        },
+        letterSpacing: {
+          widest2: '.28em',
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: #F5F2ED; color: #1E1D1A; }
+  h1, h2, h3, .font-display { font-family: 'Fraunces', serif; }
+  .label { font-family: 'Jost', sans-serif; letter-spacing: .28em; text-transform: uppercase; }
+
+  /* Header states */
+  #site-header { transition: background-color .4s ease, box-shadow .4s ease, padding .4s ease, border-color .4s ease; }
+  #site-header.scrolled { background-color: rgba(36,36,34,0.96); box-shadow: 0 8px 30px -12px rgba(0,0,0,.35); }
+
+  /* Reveal-on-scroll */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.16,.84,.44,1), transform .9s cubic-bezier(.16,.84,.44,1); }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1.is-visible { transition-delay: .12s; }
+  .reveal-delay-2.is-visible { transition-delay: .24s; }
+  .reveal-delay-3.is-visible { transition-delay: .36s; }
+
+  /* Coordinate motif — signature element */
+  .coord-tag { font-family: 'Jost', sans-serif; letter-spacing: .18em; }
+  .coord-line { position: relative; }
+  .coord-line::before {
+    content: '';
+    position: absolute; left:0; top:50%;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, rgba(141,143,132,.55), rgba(141,143,132,0));
+  }
+
+  /* underline-grow link */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: ''; position: absolute; left: 0; bottom: -6px; height: 1px; width: 0%;
+    background: #A2A594; transition: width .35s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .btn-sage { background: #8D8F84; color: #F5F2ED; }
+  .btn-sage:hover { background: #73766A; }
+
+  .card-hover { transition: transform .5s cubic-bezier(.16,.84,.44,1), box-shadow .5s ease, border-color .5s ease; }
+  .card-hover:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -25px rgba(14,34,56,.35); }
+
+  .img-reveal { overflow: hidden; }
+  .img-reveal img { transform: scale(1.08); transition: transform 1.4s cubic-bezier(.16,.84,.44,1); }
+  .img-reveal.is-visible img { transform: scale(1); }
+
+  .scroll-indicator { animation: bob 2.2s ease-in-out infinite; }
+  @keyframes bob { 0%,100%{ transform: translateY(0); opacity:.8;} 50%{ transform: translateY(10px); opacity:.4;} }
+
+  .divider-sage { background: linear-gradient(90deg, transparent, #8D8F84, transparent); height:1px; }
+
+  ::selection { background: #8D8F84; color: #F5F2ED; }
+
+  input:focus, textarea:focus, a:focus-visible, button:focus-visible {
+    outline: 2px solid #8D8F84; outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .img-reveal img, .scroll-indicator { transition: none !important; animation: none !important; opacity:1 !important; transform:none !important; }
+  }
+
+  /* mobile menu */
+  #mobile-menu { transition: max-height .5s ease, opacity .4s ease; }
+
+  .logo-mark { height: 44px; width: auto; display: block; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ================= HEADER ================= -->
+<header id="site-header" class="fixed top-0 left-0 w-full z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-center justify-between h-20 lg:h-24">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3 group">
+        <img src="./img/Tanuja-Realtors-Logo.png" alt="Tanuja Realtors logo" class="logo-mark lg:h-14 rounded-[2px]" />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-10">
+        <a href="#home" class="nav-link label text-[12px] text-white/85 hover:text-white">Home</a>
+        <a href="#about" class="nav-link label text-[12px] text-white/85 hover:text-white">About Us</a>
+        <a href="#vision" class="nav-link label text-[12px] text-white/85 hover:text-white">Vision &amp; Mission</a>
+        <a href="#locations" class="nav-link label text-[12px] text-white/85 hover:text-white">Locations</a>
+        <a href="#contact" class="nav-link label text-[12px] text-white/85 hover:text-white">Contact Us</a>
+      </nav>
+
+      <div class="hidden lg:block">
+        <a href="#contact" class="btn-sage label text-[12px] px-6 py-3 rounded-sm inline-block transition-colors">Enquire Now</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-btn" aria-label="Open menu" aria-expanded="false" class="lg:hidden text-white p-2">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+        </svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="lg:hidden overflow-hidden max-h-0 opacity-0 bg-charcoal-800/98 border-t border-white/10">
+    <nav class="flex flex-col px-6 py-6 gap-5">
+      <a href="#home" class="mobile-link label text-[13px] text-white/90">Home</a>
+      <a href="#about" class="mobile-link label text-[13px] text-white/90">About Us</a>
+      <a href="#vision" class="mobile-link label text-[13px] text-white/90">Vision &amp; Mission</a>
+      <a href="#locations" class="mobile-link label text-[13px] text-white/90">Locations</a>
+      <a href="#contact" class="mobile-link label text-[13px] text-white/90">Contact Us</a>
+      <a href="#contact" class="mobile-link btn-sage label text-[12px] px-6 py-3 rounded-sm text-center mt-2">Enquire Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="relative h-screen min-h-[640px] w-full flex items-end overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2400&auto=format&fit=crop"
+         alt="Premium high-rise residential and commercial skyline representing Tanuja Realtors developments"
+         class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-950/95 via-charcoal-900/60 to-charcoal-950/50"></div>
+    <div class="absolute inset-0 bg-charcoal-950/20"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pb-24 lg:pb-32 w-full">
+    <p class="reveal is-visible label text-sage-300 text-[12px] lg:text-[13px] mb-6">Indian &amp; UAE Real Estate</p>
+    <h1 class="reveal is-visible reveal-delay-1 font-display text-white text-4xl sm:text-5xl lg:text-7xl leading-[1.05] max-w-4xl font-medium">
+      Building Spaces.<br class="hidden sm:block"> Creating Possibilities.
+    </h1>
+    <p class="reveal is-visible reveal-delay-2 text-white/75 text-base lg:text-lg max-w-xl mt-7 leading-relaxed">
+      Tanuja Realtors is setting a remarkable standard in the Indian and UAE real estate sector through expertise, transparency, quality, and customer-focused real estate solutions.
+    </p>
+    <div class="reveal is-visible reveal-delay-3 flex flex-wrap gap-4 mt-10">
+      <a href="#vision" class="btn-sage label text-[12px] px-8 py-4 rounded-sm">Explore Our Vision</a>
+      <a href="#contact" class="label text-[12px] px-8 py-4 rounded-sm border border-white/40 text-white hover:bg-white hover:text-charcoal-900 transition-colors">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2">
+    <span class="label text-[10px] text-white/60">Scroll</span>
+    <div class="w-px h-10 bg-white/40"></div>
+  </div>
+</section>
+
+<!-- ================= WHO WE ARE ================= -->
+<section id="about" class="bg-cream py-24 lg:py-36">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="reveal order-2 lg:order-1">
+      <p class="label text-sage-700 text-[12px] mb-5">Who We Are</p>
+      <h2 class="font-display text-3xl lg:text-[2.65rem] leading-tight text-charcoal-900 mb-8">A legacy built on trust,<br>across two markets.</h2>
+      <p class="text-ink/80 leading-loose text-[15px] lg:text-base">
+        Tanuja Realtors are truly setting a remarkable standard in the Indian and UAE real estate sector. Their ability to envision and execute self-sufficient residential and commercial communities is unparalleled. With a team boasting over two decades of experience in the industry, Tanuja Realtors demonstrates not just expertise but a deep understanding of the nuances that drive success in real estate.
+      </p>
+
+      <div class="mt-10 inline-flex items-center gap-5 border border-charcoal-900/15 bg-white px-7 py-5 rounded-sm">
+        <span class="font-display text-4xl text-sage-600">20+</span>
+        <span class="label text-[11px] text-charcoal-800 leading-snug max-w-[9rem]">Years of<br>Industry Experience</span>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2 img-reveal reveal rounded-sm">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1800&auto=format&fit=crop"
+           alt="Modern premium residential architecture representing Tanuja Realtors' development standard"
+           class="w-full h-[420px] lg:h-[560px] object-cover rounded-sm" />
+    </div>
+  </div>
+</section>
+
+<!-- ================= VISION ================= -->
+<section id="vision" class="relative bg-charcoal-900 py-28 lg:py-40 overflow-hidden">
+  <div class="absolute inset-0 opacity-[0.14]">
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2200&auto=format&fit=crop"
+         alt="" class="w-full h-full object-cover" />
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-b from-charcoal-900 via-charcoal-900/95 to-charcoal-900"></div>
+
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-10 text-center reveal">
+    <p class="label text-sage-300 text-[12px] mb-8">Vision</p>
+    <span class="font-serif text-sage-400/40 text-7xl leading-none block mb-4">&ldquo;</span>
+    <p class="font-display text-white text-2xl sm:text-3xl lg:text-[2.4rem] leading-[1.4] -mt-10">
+      To be the leading Real Estate service provider by consistently striving to develop customer-friendly collaborative partnerships, based on transparency and mutual trust, which serve to build enduring client relationships.
+    </p>
+
+    <div class="mt-14 flex flex-wrap justify-center gap-4">
+      <span class="label text-[11px] text-charcoal-100 border border-sage-400/40 px-5 py-2.5 rounded-full">Transparency</span>
+      <span class="label text-[11px] text-charcoal-100 border border-sage-400/40 px-5 py-2.5 rounded-full">Mutual Trust</span>
+      <span class="label text-[11px] text-charcoal-100 border border-sage-400/40 px-5 py-2.5 rounded-full">Enduring Relationships</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSION ================= -->
+<section class="bg-cream py-24 lg:py-36">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-16 items-center">
+    <div class="img-reveal reveal rounded-sm">
+      <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1800&auto=format&fit=crop"
+           alt="Architectural interior representing Tanuja Realtors' commitment to quality construction"
+           class="w-full h-[420px] lg:h-[560px] object-cover rounded-sm" />
+    </div>
+
+    <div class="reveal">
+      <p class="label text-sage-700 text-[12px] mb-5">Mission</p>
+      <h2 class="font-display text-3xl lg:text-[2.65rem] leading-tight text-charcoal-900 mb-8">Results, delivered<br>with integrity.</h2>
+      <p class="text-ink/80 leading-loose text-[15px] lg:text-base">
+        We measure our success by the results delivered to clients. Our ethics are built on our commitment to offer superior customer service, quality construction and timely delivery combining an entrepreneurial flair and bespoke service of a fast-growing organisation which in turn would bring colours to your life.
+      </p>
+
+      <div class="grid grid-cols-2 gap-4 mt-10">
+        <div class="border-l-2 border-sage-500 pl-4 py-1">
+          <p class="label text-[10.5px] text-charcoal-900">Superior Customer Service</p>
+        </div>
+        <div class="border-l-2 border-sage-500 pl-4 py-1">
+          <p class="label text-[10.5px] text-charcoal-900">Quality Construction</p>
+        </div>
+        <div class="border-l-2 border-sage-500 pl-4 py-1">
+          <p class="label text-[10.5px] text-charcoal-900">Timely Delivery</p>
+        </div>
+        <div class="border-l-2 border-sage-500 pl-4 py-1">
+          <p class="label text-[10.5px] text-charcoal-900">Bespoke Service</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCATIONS ================= -->
+<section id="locations" class="bg-charcoal-950 py-24 lg:py-36">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal text-center max-w-2xl mx-auto mb-16 lg:mb-20">
+      <p class="label text-sage-400 text-[12px] mb-5">Our Locations</p>
+      <h2 class="font-display text-3xl lg:text-[2.65rem] text-white leading-tight">Present across two nations,<br class="hidden sm:block"> one standard.</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+      <!-- NOIDA -->
+      <div class="card-hover bg-charcoal-900 border border-white/10 rounded-sm p-8 lg:p-10">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="font-display text-white text-2xl">Noida</h3>
+          <svg class="w-6 h-6 text-sage-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+        </div>
+        <p class="text-white/65 text-sm leading-relaxed mb-6">
+          Office No. 27 <br>
+          Spectrum Mall, Phase 1, Sector 75,<br>
+          Noida Tower C, 5th Floor, 201316<br>
+        </p>
+        <a href="https://share.google/1BVmoHm8jS5f7mc7R" target="_blank" rel="noopener"
+           class="mt-auto label text-[11px] text-charcoal-900 bg-sage-400 hover:bg-sage-300 transition-colors px-5 py-3 rounded-sm text-center">
+          View on Google Maps
+        </a>
+      </div>
+
+      <!-- LUCKNOW -->
+      <div class="card-hover bg-charcoal-900 border border-white/10 rounded-sm p-8 lg:p-10">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="font-display text-white text-2xl">Lucknow</h3>
+          <svg class="w-6 h-6 text-sage-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+        </div>
+        <p class="text-white/65 text-sm leading-relaxed mb-6">
+          2nd Floor, Levana Cyber Heights<br>
+          Vibhuti Khand, Gomti Nagar<br>
+          Lucknow - 226010
+        </p>
+        <a href="https://share.google/AdkLX1y1nuM3OKHQs" target="_blank" rel="noopener"
+           class="mt-auto label text-[11px] text-charcoal-900 bg-sage-400 hover:bg-sage-300 transition-colors px-5 py-3 rounded-sm text-center">
+          View on Google Maps
+        </a>
+      </div>
+
+      <!-- DUBAI -->
+      <div class="card-hover bg-charcoal-900 border border-white/10 rounded-sm p-8 lg:p-10 flex flex-col">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="font-display text-white text-2xl">Dubai</h3>
+          <svg class="w-6 h-6 text-sage-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+          </svg>
+        </div>
+        <p class="text-white/65 text-sm leading-relaxed mb-6">
+          Al Maya Building – Office No. 101<br>
+Al Mankhool Rd – Al Mankhool <br> Dubai
+        </p>
+        <a href="https://maps.app.goo.gl/9Na6oqHkhg42a9Ni9" target="_blank" rel="noopener"
+           class="mt-auto label text-[11px] text-charcoal-900 bg-sage-400 hover:bg-sage-300 transition-colors px-5 py-3 rounded-sm text-center">
+          View on Google Maps
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAP / LOCATION INTERFACE ================= -->
+<section class="bg-cream py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="reveal text-center max-w-2xl mx-auto mb-14">
+      <p class="label text-sage-700 text-[12px] mb-5">Find Us</p>
+      <h2 class="font-display text-3xl lg:text-4xl text-charcoal-900 leading-tight">Our Global Coordinates</h2>
+    </div>
+
+    <div class="reveal grid lg:grid-cols-3 gap-px bg-charcoal-900/10 border border-charcoal-900/10 rounded-sm overflow-hidden">
+      <div class="bg-white p-8 lg:p-10">
+        <p class="coord-tag text-[10px] text-sage-700 mb-3">01 — NOIDA</p>
+        <p class="text-charcoal-900 text-sm leading-relaxed mb-5">Spectrum Mall, Sector 75,<br>Noida, Uttar Pradesh</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Spectrum+Mall+Sector+75+Noida" target="_blank" rel="noopener"
+           class="label text-[11px] text-charcoal-900 border-b border-sage-500 pb-0.5 hover:text-sage-700">View on Google Maps &rarr;</a>
+      </div>
+      <div class="bg-white p-8 lg:p-10">
+        <p class="coord-tag text-[10px] text-sage-700 mb-3">02 — LUCKNOW</p>
+        <p class="text-charcoal-900 text-sm leading-relaxed mb-5">Levana Cyber Heights,<br>Gomti Nagar, Lucknow</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Levana+Cyber+Heights+Gomti+Nagar+Lucknow" target="_blank" rel="noopener"
+           class="label text-[11px] text-charcoal-900 border-b border-sage-500 pb-0.5 hover:text-sage-700">View on Google Maps &rarr;</a>
+      </div>
+      <div class="bg-white p-8 lg:p-10">
+        <p class="coord-tag text-[10px] text-sage-700 mb-3">03 — DUBAI</p>
+        <p class="text-charcoal-900 text-sm leading-relaxed mb-5">Al Maya Building – Office No. 101<br>
+Al Mankhool Rd – Al Mankhool – Dubai</p>
+        <a href="https://www.google.com/maps?q=25.2529073,55.2934397" target="_blank" rel="noopener"
+           class="label text-[11px] text-charcoal-900 border-b border-sage-500 pb-0.5 hover:text-sage-700">View on Google Maps &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="bg-charcoal-900 py-24 lg:py-36">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-5 gap-16">
+
+    <div class="lg:col-span-2 reveal">
+      <p class="label text-sage-400 text-[12px] mb-5">Contact Us</p>
+      <h2 class="font-display text-3xl lg:text-4xl text-white leading-tight mb-6">Let&rsquo;s Build Your<br>Next Opportunity</h2>
+      <p class="text-white/60 leading-relaxed mb-10 text-sm lg:text-base">
+        Connect with Tanuja Realtors to explore premium real estate opportunities across India and the UAE.
+      </p>
+
+      <div class="space-y-6">
+        <div class="coord-line pt-4">
+          <p class="label text-[10px] text-sage-400/80 mb-1">Phone</p>
+          <p class="text-white/50 text-sm">To be provided</p>
+        </div>
+        <div class="coord-line pt-4">
+          <p class="label text-[10px] text-sage-400/80 mb-1">Email</p>
+          <p class="text-white/50 text-sm">To be provided</p>
+        </div>
+        <div class="coord-line pt-4">
+          <p class="label text-[10px] text-sage-400/80 mb-1">Offices</p>
+          <p class="text-white/70 text-sm leading-relaxed">Noida &middot; Lucknow &middot; Dubai</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="lg:col-span-3 reveal reveal-delay-1 bg-charcoal-950/60 border border-white/10 rounded-sm p-8 lg:p-12" onsubmit="return false;">
+      <div class="grid sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="label text-[10px] text-white/60 block mb-2">Full Name</label>
+          <input type="text" required class="w-full bg-transparent border-b border-white/25 focus:border-sage-400 text-white text-sm py-3 outline-none transition-colors" />
+        </div>
+        <div>
+          <label class="label text-[10px] text-white/60 block mb-2">Phone Number</label>
+          <input type="tel" required class="w-full bg-transparent border-b border-white/25 focus:border-sage-400 text-white text-sm py-3 outline-none transition-colors" />
+        </div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label class="label text-[10px] text-white/60 block mb-2">Email Address</label>
+          <input type="email" required class="w-full bg-transparent border-b border-white/25 focus:border-sage-400 text-white text-sm py-3 outline-none transition-colors" />
+        </div>
+        <div>
+          <label class="label text-[10px] text-white/60 block mb-2">Location of Interest</label>
+          <select class="w-full bg-transparent border-b border-white/25 focus:border-sage-400 text-white text-sm py-3 outline-none transition-colors">
+            <option class="bg-charcoal-900">Noida</option>
+            <option class="bg-charcoal-900">Lucknow</option>
+            <option class="bg-charcoal-900">Dubai</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-8">
+        <label class="label text-[10px] text-white/60 block mb-2">Message</label>
+        <textarea rows="4" class="w-full bg-transparent border-b border-white/25 focus:border-sage-400 text-white text-sm py-3 outline-none transition-colors resize-none"></textarea>
+      </div>
+      <button type="submit" class="btn-sage label text-[12px] px-9 py-4 rounded-sm w-full sm:w-auto">Submit Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="bg-charcoal-950 pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-4 gap-12 mb-16">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3 mb-5">
+          <img src="./img/Tanuja-Realtors-Logo.png" alt="Tanuja Realtors logo" class="h-14 w-auto rounded-[2px]" />
+        </div>
+        <p class="text-white/50 text-sm leading-relaxed max-w-sm">
+          Setting a remarkable standard in the Indian and UAE real estate sector through expertise, transparency, and customer-focused service.
+        </p>
+      </div>
+
+      <div>
+        <p class="label text-[10px] text-sage-400/80 mb-5">About Us</p>
+        <ul class="space-y-3 text-sm text-white/55">
+          <li><a href="#about" class="hover:text-sage-300 transition-colors">About Us</a></li>
+          <li><a href="#vision" class="hover:text-sage-300 transition-colors">Vision</a></li>
+          <li><a href="#vision" class="hover:text-sage-300 transition-colors">Mission</a></li>
+          <li><a href="#locations" class="hover:text-sage-300 transition-colors">Locations</a></li>
+          <li><a href="#contact" class="hover:text-sage-300 transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="label text-[10px] text-sage-400/80 mb-5">Locations</p>
+        <ul class="space-y-3 text-sm text-white/55">
+          <li>Noida, India</li>
+          <li>Lucknow, India</li>
+          <li>Dubai, UAE</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p class="text-white/40 text-xs">Copyright &copy; 2026 Tanuja Realtors. All Rights Reserved. | GSTIN No.: 09APIPN0739C2ZY</p>
+      <div class="flex gap-6 text-xs text-white/40">
+        <a href="#" class="hover:text-sage-300 transition-colors">Privacy Policy</a>
+        <a href="#" class="hover:text-sage-300 transition-colors">Terms &amp; Conditions</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky header background
+  const header = document.getElementById('site-header');
+  const onScroll = () => {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // Mobile menu
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+  let menuOpen = false;
+
+  function toggleMenu() {
+    menuOpen = !menuOpen;
+    menuBtn.setAttribute('aria-expanded', menuOpen);
+    if (menuOpen) {
+      mobileMenu.style.maxHeight = mobileMenu.scrollHeight + 'px';
+      mobileMenu.style.opacity = '1';
+      iconOpen.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+      header.classList.add('scrolled');
+    } else {
+      mobileMenu.style.maxHeight = '0px';
+      mobileMenu.style.opacity = '0';
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+  }
+  menuBtn.addEventListener('click', toggleMenu);
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => { if (menuOpen) toggleMenu(); });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal, .img-reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
